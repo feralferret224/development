@@ -7,7 +7,7 @@ If you used the stencil code, this is `https://<your GitHub username>.github.io/
 This is a simple application used to buy clothes from the retailer Fashion Haus. Users can sort, filter, and add/remove items from their cart.
 
 ### Usability Principles Considered
-
+To account for memorability, everything is  
 
 ### Organization of Components
 The App component is the primary component. It contains the sort, filter, and cart functionality. The App component also contains the StoreGrid component, which organizes the item cards into a grid. Each item card is a StoreItem component. Additionally, the items in the cart are CartItem components.
