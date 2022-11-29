@@ -4,7 +4,7 @@
 https://feralferret224.github.io/development/
 
 ### Goal and Value of the Application
-This is a simple application used to buy clothes from the retailer Fashion Haus. Users can sort, filter, and add/remove items from their cart.
+This is a simple application used to buy clothes from the retailer Fashion Haus. Users can sort, filter, and add/remove items from their cart. They can filter by style and color, and they can sort by rating and price.
 
 ### Usability Principles Considered
 To account for memorability, I opted to use labels in lieu of symbols in many places. Additionally, I used a layout that is common on many marketplace websites, which feature the filters and sort options on the lefthand side of the page. With regard to error prevention, I disabled the remove button when it should be impossible to remove an item from the cart to prevent a negative balance.
