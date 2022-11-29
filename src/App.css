@@ -21,13 +21,14 @@
   margin: 15px 35px 0 50px;
   padding: 25px 20px 0;
   /* border: 2px solid #d1a480; */
-  border-radius: 10px;
+  /* border-radius: 10px; */
   /* box-shadow: 0 1px 1px #d1a480; */
 }
 
-.App-link {
-  color: #61dafb;
-}
+/* .Cart {
+  border-radius: 10px;
+  background-color: #f6d0b199;
+} */
 
 @keyframes App-logo-spin {
   from {

@@ -2,6 +2,7 @@ import "./App.css";
 import { useCallback, useEffect, useState, React } from "react";
 import storeData from "./assets/store-data.json";
 import { StoreGrid } from "./components/StoreGrid";
+import { CartItem } from "./components/CartItem";
 
 // import { Button, Container } from '@mui/material';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -166,6 +167,16 @@ function App() {
     console.log(currCart);
   }
 
+  function removeFromCart(item) {
+    if (currCart[item.name] > 0) {
+      const itemCount = currCart[item.name] - 1;
+      currCart[item.name] = itemCount;
+      setPrice(Math.abs(price - item.price));
+    }
+    console.log(item.name);
+    console.log(currCart);
+  }
+
   return (
     <ThemeProvider theme={theme}>
     <div className="root">
@@ -321,18 +332,24 @@ function App() {
           <Button variant="contained" onClick={handleFilterReset}>Reset filters</Button>
           <br></br>
           <br></br>
-          <div>
+          <div class="Cart">
             <h3>Cart</h3>
             {
               Object.keys(currCart).map(function(key, index) {
-                return <p>{currCart[key]} - {key}</p>;
+                if (currCart[key] > 0) {
+                return <CartItem
+                  item={key}
+                  count={currCart[key]}
+                ></CartItem>;}
               })
             }
+            
+            <br></br>
             <h4>Price: {(price).toFixed(2)}</h4>
             <Button variant="contained">Checkout</Button>
           </div>
         </div>
-        <StoreGrid display={currDisplay} add={addToCart}></StoreGrid>
+        <StoreGrid display={currDisplay} cart={currCart} add={addToCart} remove={removeFromCart}></StoreGrid>
       </div>
     </div>
     </ThemeProvider>

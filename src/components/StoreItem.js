@@ -1,40 +1,24 @@
-
-// import { getImageUrl } from './utils.js';
-// import React from "react";
-// // import { Button, Container } from '@mui/material';
-// import Button from 'react-bootstrap/Button';
-// import Card from 'react-bootstrap/Card';
-
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions, Paper, Rating } from '@mui/material';
 
-// export function StoreItem({ name, description, price, image, item, add }) {
-//   return (
+export function StoreItem({ add, item, cart, remove }) {
+  const [isDisabled, setIsDisabled] = useState(true);
 
-//     <Card>
-//       <Card.Img variant="top" src={image} />
-//       <Card.Body>
-//         <Card.Title>{name}</Card.Title>
-//         <Card.Text>
-//         {description}
-//         </Card.Text>
-//         <Card.Text>
-//           <b>{price}</b>
-//         </Card.Text>
-//         <Button onClick={()=>{add(item)}}>Add to Cart</Button>
-//       </Card.Body>
-//     </Card>
-
-//   );
-// }
-
-
-
-export function StoreItem({ name, description, price, image, item, add }) {
+  useEffect(() => 
+  {
+    if (cart[item.name] > 0) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  },
+  [cart, add, item]
+);
   return (
     <Card sx={{ minWidth: 150, maxWidth: 200, minHeight: 300, margin: 2 }}>
       <CardActionArea>
@@ -61,6 +45,9 @@ export function StoreItem({ name, description, price, image, item, add }) {
       <CardActions>
         <Button size="small" color="primary" onClick={()=>{add(item)}}>
           Add to cart
+        </Button>
+        <Button disabled={isDisabled} size="small" color="primary" onClick={()=>{remove(item)}}>
+          Remove one from cart
         </Button>
       </CardActions>
       <Paper elevation={3} />
